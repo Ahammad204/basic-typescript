@@ -10,15 +10,26 @@ function filterEvenNumbers(numbers: number[]): number[] {
   return evenNumbers;
 }
 
+function reverseString(text: string): string {
+  let reverseText: string = "";
 
-function reverseString (text:string):string {
+  for (let i = text.length - 1; i >= 0; i--) {
+    reverseText = reverseText + text[i];
+  }
 
-    let reverseText:string = ""; 
-
-    for(let i=text.length-1; i>=0; i--){
-        reverseText = reverseText + text[i];
-    }
-
-    return reverseText;
+  return reverseText;
 }
 
+type stringOrNumber = string | number;
+
+function checkType(input: stringOrNumber): string {
+  if (typeof input === "string") {
+    return "String";
+  } else {
+    return "Number";
+  }
+}
+
+
+const result = checkType(12); 
+console.log(result)
