@@ -10,3 +10,15 @@ function filterEvenNumbers(numbers: number[]): number[] {
   return evenNumbers;
 }
 
+
+function reverseString (text:string):string {
+
+    let reverseText:string = ""; 
+
+    for(let i=text.length-1; i>=0; i--){
+        reverseText = reverseText + text[i];
+    }
+
+    return reverseText;
+}
+
