@@ -30,11 +30,24 @@ function checkType(input: stringOrNumber): string {
   }
 }
 
-function getProperty <T, k extends keyof T> (obj:T,key:k) : T[k] {
-    return obj[key];
+function getProperty<T, k extends keyof T>(obj: T, key: k): T[k] {
+  return obj[key];
 }
 
-const user = { id: 1, name: "John Doe", age: 21 };
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+}
 
-const result = getProperty(user, "age");
-console.log(result)
+function toggleReadStatus(book: Book): Book & { isRead: boolean } {
+  return {
+    ...book,
+    isRead: true,
+  };
+}
+
+const myBook = { title: "TypeScript Guide", author: "Jane Doe", publishedYear: 2024 };
+
+const result = toggleReadStatus(myBook);
+console.log(result);
