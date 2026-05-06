@@ -65,20 +65,34 @@ class Student extends Person {
     this.grade = grade;
   }
 
-  getDetails():string {
-    return `Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`
+  getDetails(): string {
+    return `Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`;
+  }
 }
+
+function getIntersection(arr1: number[], arr2: number[]): number[] {
+  let matchingNumber: number[] = [];
+  let flag: boolean = true;
+
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        flag = false;
+
+        for (let k = 0; k < matchingNumber.length; k++) {
+          if (matchingNumber[k] === arr1[i]) {
+            flag = true;
+            break;
+          }
+        }
+        if (flag === false) {
+          matchingNumber.push(arr1[i]);
+        }
+      }
+    }
+  }
+
+  return matchingNumber;
 }
 
 
-
-
-
-
-
-
-
-const student = new Student("Alice", 20, "A");
-
-const result = student.getDetails();
-console.log(result);
