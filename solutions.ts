@@ -30,6 +30,11 @@ function checkType(input: stringOrNumber): string {
   }
 }
 
+function getProperty <T, k extends keyof T> (obj:T,key:k) : T[k] {
+    return obj[key];
+}
 
-const result = checkType(12); 
+const user = { id: 1, name: "John Doe", age: 21 };
+
+const result = getProperty(user, "age");
 console.log(result)
